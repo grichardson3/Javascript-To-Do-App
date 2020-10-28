@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/icon.png" type="image/png" sizes="48x48">
     <title>To-Do App</title>
   </head>
   <body>
@@ -14,12 +15,14 @@
       <label>
         Add To-Do: <input type="text" name="toDoInput" placeholder="add your to-do">
       </label>
-      <button>Submit</button>
+      <button id="createToDo">Submit</button>
     </form><br>
     <label>
       Hide Completed <input id="hideCompleted" type="checkbox">
-    </label>
+    </label><br><br>
     <div id="toDos"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="js/todo-functions.js"></script>
     <script src="js/todo-app.js"></script>
   </body>
 </html>
