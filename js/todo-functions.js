@@ -31,7 +31,7 @@ const renderToDos = (toDo, filters) => {
     });
 
     if (!filteredToDos.length) {
-        document.querySelector('#toDos').innerHTML = '<p><i style="color: #666;">no results found...</i></p>';
+        document.querySelector('#toDos').innerHTML = '<div><span><i>no results found...</i></span></div>';
     } else {
         document.querySelector('#toDos').innerHTML = '';
     }
@@ -43,6 +43,8 @@ const renderToDos = (toDo, filters) => {
         const toDoText = document.createElement('span');
         const deleteButton = document.createElement('button');
         checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('class', 'form-check-input')
+        deleteButton.setAttribute("class", "btn btn-danger");
         deleteButton.textContent = "Delete";
 
         checkbox.addEventListener('change', (e) => {
@@ -74,16 +76,16 @@ const renderToDos = (toDo, filters) => {
             toDoText.textContent = todo.title;
             document.querySelector('#toDos').appendChild(toDoElement);
             toDoElement.appendChild(checkbox);
-            toDoElement.appendChild(deleteButton);
             toDoElement.appendChild(toDoText);
+            toDoElement.appendChild(deleteButton);
             checkbox.checked = false;
         } else {
             // toDoText.textContent = todo.title + " - completed";
             toDoText.textContent = todo.title;
             document.querySelector('#toDos').appendChild(toDoElement);
             toDoElement.appendChild(checkbox);
-            toDoElement.appendChild(deleteButton);
             toDoElement.appendChild(toDoText);
+            toDoElement.appendChild(deleteButton);
             checkbox.checked = true;
         }
     });
@@ -116,5 +118,5 @@ const renderDOMSummary = () => {
     const summary = document.createElement("h3");
     if (incompleteToDos.length > 1 || incompleteToDos.length == 0) {s = "s"} else {s = ""}
     summary.textContent = `You have ${incompleteToDos.length} incomplete todo${s} left`;
-    document.querySelector("body").appendChild(summary);
+    document.querySelector("#container").appendChild(summary);
 }
